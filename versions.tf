@@ -7,8 +7,9 @@ terraform {
   }
 }
 
+#Put your AK and SK to connect your account
 provider "huaweicloud" {
   region     = "sa-brazil-1"
-  access_key = "1S3J4PZX3XUDM9DJ0AIK"
-  secret_key = "WsXiJgOWYiUqEkPa4Iv3uFTk8iu3qgw3TamhHgl6"
+  access_key = "" 
+  secret_key = ""
 }

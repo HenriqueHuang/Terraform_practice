@@ -33,7 +33,7 @@ variable "remote_ip_prefix" {
 
 variable "my_pass" {
   type = string
-  default = "hu@wei753"
+  default = "" #Put your password
 }
 
 

@@ -96,7 +96,7 @@ resource "huaweicloud_compute_instance" "ecs-1" {
   flavor_id          = data.huaweicloud_compute_flavors.data_ecs_flavor.ids[0]
   security_group_ids = [local.secgroup-1_id]
   availability_zone  = local.azs[1] #sa-brazil-1b
-  admin_pass = var.my_pass
+  admin_pass = var.my_pass #Configure your password in variables.tf
   
   network {
     uuid = local.subnet-ecs-1_id
@@ -104,7 +104,7 @@ resource "huaweicloud_compute_instance" "ecs-1" {
 }
 
 resource "huaweicloud_compute_eip_associate" "ecs1-eip1-associate" {
-  public_ip   = huaweicloud_vpc_eip.eip-1.address
+  public_ip   = huaweicloud_vpc_eip.eip-1.address 
   instance_id = huaweicloud_compute_instance.ecs-1.id
 }
 
@@ -120,7 +120,7 @@ resource "huaweicloud_rds_instance" "rds-1_instance" {
   db {
     type     = "MySQL"
     version  = "5.7"
-    password = var.my_pass
+    password = var.my_pass #Configure your password in variables.tf
   }
   volume {
     type = "CLOUDSSD"
@@ -130,7 +130,7 @@ resource "huaweicloud_rds_instance" "rds-1_instance" {
 
 resource "huaweicloud_gaussdb_mysql_instance" "gaussdb_instance_1" {
   name              = "gaussdb_instance_1"
-  password          = var.my_pass
+  password          = var.my_pass #Configure your password in variables.tf
   flavor            = "gaussdb.mysql.2xlarge.x86.4"
   vpc_id            = local.my_vpc_id
   subnet_id         = local.subnet-db-1_id
